@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هوش مصنوعی صبح دانش</title>
+    
+    <!-- فونت لاله‌زار -->
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow: hidden;
+            font-family: 'Lalezar', cursive;
+            position: relative;
+        }
+
+        /* اسکرول‌بار خیلی کم‌رنگ و باریک */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 255, 0, 0.2);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 255, 0, 0.3);
+        }
+
+        .mobile-container {
+            width: 420px;
+            height: 100vh;
+            background-color: transparent;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px 100px 20px;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+
+        .title {
+            color: white;
+            font-size: 28px;
+            text-align: center;
+            text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+            margin-bottom: 40px;
+            z-index: 10;
+        }
+
+        .subtitle {
+            color: #00ff00;
+            font-size: 22px;
+            text-align: center;
+            text-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
+            margin-bottom: 30px;
+            z-index: 10;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            width: 100%;
+            max-width: 380px;
+            z-index: 10;
+        }
+
+        /* افکت نور نیونی برای همه پیشنهادها */
+        .topic {
+            background-color: rgba(0, 255, 0, 0.1);
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            padding: 20px 12px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 0, 0.4);
+            box-shadow: 
+                0 0 15px rgba(0, 255, 0, 0.4),
+                inset 0 0 10px rgba(0, 255, 0, 0.2);
+            text-shadow: 0 0 10px #00ff00;
+            transition: all 0.4s;
+        }
+
+        .topic:hover {
+            background-color: rgba(0, 255, 0, 0.2);
+            box-shadow: 
+                0 0 25px rgba(0, 255, 0, 0.6),
+                inset 0 0 15px rgba(0, 255, 0, 0.3);
+            transform: scale(1.05);
+            text-shadow: 0 0 15px #00ff00;
+        }
+
+        /* گزینه آخر: مستطیل بزرگ با نور نیونی قوی‌تر */
+        .topic-full {
+            grid-column: 1 / -1;
+            background-color: rgba(0, 255, 0, 0.15);
+            font-size: 20px;
+            padding: 28px 12px;
+            border: 2px solid rgba(0, 255, 0, 0.6);
+            box-shadow: 
+                0 0 25px rgba(0, 255, 0, 0.6),
+                inset 0 0 15px rgba(0, 255, 0, 0.3);
+            text-shadow: 0 0 15px #00ff00;
+        }
+
+        .topic-full:hover {
+            background-color: rgba(0, 255, 0, 0.3);
+            box-shadow: 
+                0 0 40px rgba(0, 255, 0, 0.8),
+                inset 0 0 20px rgba(0, 255, 0, 0.4);
+            transform: scale(1.03);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.7; }
+        }
+
+        .star {
+            position: absolute;
+            background-color: #00ff00;
+            border-radius: 50%;
+            animation: twinkle linear infinite;
+            opacity: 0.4;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-container">
+        <div class="title">هوش مصنوعی صبح دانش</div>
+        
+        <div class="subtitle">پیشنهاد سوالات صبح دانش ✨</div>
+        
+        <div class="topics-grid">
+            <div class="topic">🎬 ۵ تا فیلم بر اساس سلیقه شما</div>
+            <div class="topic">🔮 فال حافظ با صبح دانش</div>
+            <div class="topic">📰 خلاصه اخبار امروز</div>
+            <div class="topic">💼 مصاحبه شغلیت با صبح دانش</div>
+            <div class="topic">💰 چطوری پولامو پس‌انداز کنم</div>
+            <div class="topic">♊ astrology امروز من</div>
+            <div class="topic">🍳 ایده صبحانه سالم و سریع</div>
+            <div class="topic">👗 ساختن کمد لباس دیجیتال</div>
+            <div class="topic topic-full">⏳ ۵ سال دیگه من کجام؟</div>
+        </div>
+    </div>
+
+    <script>
+        // ستاره‌ها در کل صفحه
+        const numStars = 80;
+        for (let i = 0; i < numStars; i++) {
+            let star = document.createElement('div');
+            star.classList.add('star');
+            
+            let size = Math.random() * 3 + 1;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            
+            let duration = Math.random() * 5 + 4;
+            star.style.animationDuration = duration + 's';
+            
+            let delay = Math.random() * 5;
+            star.style.animationDelay = delay + 's';
+            
+            document.body.appendChild(star);
+        }
+    </script>
+</body>
+</html>
